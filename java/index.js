@@ -56,16 +56,16 @@ gameBoard.addEventListener("click", (e)=>{
             console.log(computerTurn)
         //if player follers the pattern make a new pattern
             if(playerTurn[0] == computerTurn[0]){
+                level += 1
                 playerTurn = []
                 computerTurn = []
                 let newRandomChoices = choices[Math.floor(Math.random()* choices.length)]
                 computerTurn.push(newRandomChoices)
                 readOut.innerText = (computerTurn)
-                
-                
-                
+            
             }else{
-        readOut.innerText = "DOOOH!"
+        readOut.innerText = `DOOOH!  You got to level ${level}`
+        console.log("you got to level", level)
     }
 })
 }
