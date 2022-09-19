@@ -24,3 +24,6 @@ As a user I want the ability to...
 ![slide](/image%20files/3.jpg)
 ![slide](/image%20files/4.jpg)
 ![slide](/image%20files/5.jpg)
+
+## Schedule
+![slide](/image%20files/Project1Schedule.jpg)
