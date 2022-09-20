@@ -16,9 +16,10 @@ document.addEventListener("DOMContentLoaded", ()=>{
     console.log("bop it was loaded")
     bopIt.classList.add("bounce-top")
     twistIt.classList.add('rotate-center')
-    console.log("twist it it was clicked") 
-    console.log("pull it was clicked")
+    console.log("twist it it was loaded") 
+    
     pullIt.classList.add("slide-bottom")
+    console.log("pull it was loaded")
     patternFunction();
 
     })
@@ -48,13 +49,22 @@ const patternFunction = ()=> {
 const gamePlay = ()=>{
     
     // add eventlistener to see if player copied
-gameBoard.addEventListener("click", (e)=>{
+    gameBoard.addEventListener("click", (e)=>{
     // add click to player array
         //    console.log(e.target.id)
            playerTurn.push(e.target.id)
-            console.log(playerTurn)
-            console.log(computerTurn)
-        //if player follers the pattern make a new pattern
+            console.log("Player:",playerTurn)
+            console.log("Computer:", computerTurn)
+              checkPattern()     
+
+    // if(checkPattern = "false"){
+    //     clearInterval(checkPattern)
+    // }
+})
+}
+//if player follows the pattern make a new pattern
+        //need to make a time limit to follow 
+const checkPattern = () =>{
             if(playerTurn[0] == computerTurn[0]){
                 level += 1
                 playerTurn = []
@@ -62,12 +72,23 @@ gameBoard.addEventListener("click", (e)=>{
                 let newRandomChoices = choices[Math.floor(Math.random()* choices.length)]
                 computerTurn.push(newRandomChoices)
                 readOut.innerText = (computerTurn)
-            
+                // setInterval(patternFunction,1500)
             }else{
-        readOut.innerText = `DOOOH!  You got to level ${level}`
-        console.log("you got to level", level)
-    }
-})
+                
+                readOut.innerText = `DOOOH!  You got to level ${level}`
+                console.log("you got to level", level)
+                // clearInterval(patternFunction)
+                gameBoard.removeEventListener("click",()=>{
+                //    return false
+                })
+                }
+            
 }
+const stopInterval = (pattern)=>{
+    clearInterval(pattern)
+}
+
+
+
 
 gamePlay()
