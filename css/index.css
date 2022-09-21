@@ -3,21 +3,39 @@ body{
     background-image: url(/css/background.png);
     background-position: center;
     font-family: 'Creepster', cursive;
-    ;
+   
+    
 }
+
+
 .title-container{
     /* border: 4px dashed #bada55; */
-    margin: 20px;
+    
     text-align: center;
     font-size: 50px;
-    color: #bada55
-
+    color: #bada55;
+   
 
 }
+.directions-container{
+        font-family: 'Amatic SC', cursive;
+        font-size: 40px ;
+        padding: 10px;
+        line-height: 5px;
+        background-color: white;
+        opacity: 0.6;
+        width: 75%;
+        height: 30%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+}
+
 .game-container{
    border: 5px dashed black;
-   width: 1000px;
-   height: 50vh;
+   width: 80vw;
+   height: 50%;
    margin:auto;
    display: grid;
    grid-template-columns: 15% 25% 25% 25% 15%;
@@ -28,6 +46,7 @@ body{
     grid-column: 3;
     grid-row: 2;
     margin-left: -30px;
+    size-adjust: inherit;
 }
 
 #Twist-It{
@@ -35,12 +54,14 @@ body{
     grid-row: 3;   
     margin-top: -33px;
     margin-left: 73px;
+    size-adjust: inherit;
 }
 
 #Pull-It{
     grid-column: 4;
     grid-row: 3;
     margin-left: 30px;
+    size-adjust: inherit;
 }
 .message-container{
     border: 3px dashed purple;
