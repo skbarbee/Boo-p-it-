@@ -1,42 +1,43 @@
 body{
-    margin: auto;
+    
     background-image: url(/css/background.png);
-    background-position: center;
+    background-size: cover;
     font-family: 'Creepster', cursive;
-   
-    
+    width:100vw;
+    height: 100vh;
+    margin: auto;
 }
-
-
-.title-container{
-    /* border: 4px dashed #bada55; */
-    
-    text-align: center;
-    font-size: 50px;
-    color: #bada55;
-   
-
+h1{
+        text-align: center;
+        color: #bada55;
+        line-height: 1rem;
+        font-size: 90px;
+        margin-bottom: -5%;
+        z-index: initial
 }
+.message-container{
+        border: 3px dashed purple;
+        text-align: center;
+        color: #881EE4;
+        font-size: 35px;
+        margin: 5% 10% 5% 10%
+    }
 .directions-container{
         font-family: 'Amatic SC', cursive;
-        font-size: 40px ;
-        padding: 10px;
-        line-height: 5px;
+        font-size: 35px ;
         background-color: white;
         opacity: 0.6;
-        width: 75%;
-        height: 30%;
         text-align: center;
         justify-content: center;
         align-items: center;
-        margin: auto;
+        line-height: 1rem;
+        padding: 1%;
+        margin: 5%
+        
 }
 
 .game-container{
    border: 5px dashed black;
-   width: 80vw;
-   height: 50%;
-   margin:auto;
    display: grid;
    justify-content: center;
    grid-template-columns: 15% 25% 25% 25% 15%;
@@ -47,7 +48,6 @@ body{
 #Bop-It{
         grid-column: 3;
         grid-row: 2;
-        position: relative;
         max-width: 250%;
         justify-self: center;
 
@@ -56,8 +56,6 @@ body{
 #Twist-It{
     grid-column: 2;
     grid-row: 3;   
-    margin-top: -10%;
-    max-width: 150%;
     justify-self: end;
    
 }
@@ -65,20 +63,11 @@ body{
 #Pull-It{
     grid-column: 4;
     grid-row: 3;
-    position: relative;
-    max-width: 100%;
-    max-height: auto;
-justify-self: flex-start;
+   justify-self: flex-start;
 
     
 }
-.message-container{
-    border: 3px dashed purple;
-    text-align: center;
-    color: #881EE4;
-    font-size: 50px;
-    
-}
+
 
 .rotate-center:active {
 	-webkit-animation: rotate-center 0.6s ease-in-out both;
