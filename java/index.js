@@ -65,15 +65,16 @@ const getRandomChoice = () => {
 const playSound = ()=>{
     if (randomChoice === choices[0]){
         bopItSound.play()
-    }else if (randomChoice === choices[1]){
+        bopItSound.playbackRate = 1.5
+     }else if (randomChoice === choices[1]){
         twistItSound.play()
+        twistItSound.playbackRate = 1.5
     }else if (randomChoice === choices[2]){
         pullItSound.play()
+        pullItSound.playbackRate = 1.5
     }
 }
-bopIt.addEventListener("click",(e)=>{
-    bopItSound.play()
-})
+
 //stop interval from running and player from playing
 const stopGame = ()=>{
     lostSound.play()
@@ -114,12 +115,16 @@ function compareChoices () {
             interval = 2000
             changeChoice();
             console.log(`interval is now:${interval}\n `)
-         }else if (level >= 6){
+         }else if ((level >4) && (level < 10)){
             clearInterval(intervalID)
             interval = 1200
             changeChoice();
             console.log(`interval is now:${interval}\n `)
-        }
+        }else if ((level > 9) && (level < 15)){
+            clearInterval(intervalID)
+            interval = 1000
+            changeChoice();
+            console.log(`interval is now:${interval}\n `)}
         //set my new choice
         randomChoice = getRandomChoice()
         playSound()
