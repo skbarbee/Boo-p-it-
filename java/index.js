@@ -10,6 +10,7 @@ const pullIt = document.querySelector("#Pull-It")
 const readOut = document.querySelector(".read-out")
 const gameBoard = document.querySelector(".game-container")
 const startButton = document.querySelector("#start")
+const bopItGame = document.querySelector(".bop-it-game")
 
 
 let level = 0
@@ -80,7 +81,7 @@ const stopGame = ()=>{
     lostSound.play()
     console.log('game lost')
     clearInterval(intervalID)
-    gameBoard.style.visibility = 'hidden'
+    bopItGame.style.visibility = 'hidden'
     readOut.innerText = `you got to level ${level}`
 }
 //want to change the speed of the pattern as level increases
@@ -141,7 +142,7 @@ function compareChoices () {
 const startGame = ()=> {
 // board has to be empty
     interval = 3000
-    gameBoard.style.visibility='visible'
+    bopItGame.style.visibility='visible'
     playerTurn = []
     computerTurn = []
     level = 0
