@@ -32,17 +32,37 @@ bopItSound.src = "java/GameSounds/Bop.m4a"
 bopItSound.type = "audio/mp4"
 bopItSound.preload = "auto"
 
+const bopItClick = document.createElement("audio")
+bopItClick.id ="bopclick"
+bopItClick.src = "java/GameSounds/Bop_R.m4a"
+bopItClick.type = "audio/mp4"
+bopItClick.preload = "auto"
+
 const twistItSound = document.createElement("audio")
 twistItSound.id ="twistsound"
 twistItSound.src = "java/GameSounds/Twist.m4a"
 twistItSound.type = "audio/mp4"
 twistItSound.preload = "auto"
 
+const twistClick = document.createElement("audio")
+twistClick.id ="twistsound"
+twistClick.src = "java/GameSounds/Twist_C.m4a"
+twistClick.type = "audio/mp4"
+twistClick.preload = "auto"
+
 const pullItSound = document.createElement("audio")
-pullItSound.id ="twistsound"
+pullItSound.id = "pullItsound"
 pullItSound.src = "java/GameSounds/Pull.m4a"
 pullItSound.type = "audio/mp4"
 pullItSound.preload = "auto"
+
+const pullClick = document.createElement("audio")
+pullClick.id ="pullClicksound"
+pullClick.src = "java/GameSounds/Pull_R.m4a"
+pullClick.type = "audio/mp4"
+pullClick.preload = "auto"
+
+
 
 document.addEventListener("DOMContentLoaded", ()=>{
     console.log("bop it was loaded")
@@ -62,7 +82,18 @@ const recordPlayerChoice= (e) =>{
 const getRandomChoice = () => {
  return choices[Math.floor((Math.random())* (choices.length))]
 }
-
+const clickSound = (e)=>{
+    if(e.target.id === "Bop-It"){
+        bopItClick.play()
+        bopItClick.playbackRate = 1.5
+    }else if(e.target.id === "Pull-It"){
+        pullClick.play()
+        pullClick.playbackRate = 1.5
+    }else if(e.target.id === "Twist-It"){
+        twistClick.play()
+        twistClick.playbackRate = 3
+    }
+}
 const playSound = ()=>{
     if (randomChoice === choices[0]){
         bopItSound.play()
@@ -159,4 +190,5 @@ const startGame = ()=> {
     
 }
 startButton.addEventListener('click', startGame)
-gameBoard.addEventListener('click', recordPlayerChoice)
+bopItGame.addEventListener('click', recordPlayerChoice)
+bopItGame.addEventListener('click', clickSound)
