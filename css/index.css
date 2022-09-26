@@ -1,6 +1,6 @@
 body{
     
-    background-image: url(/css/background.png);
+    background-image: url("/background.png");
     background-size:contain;
     font-family: 'Creepster', cursive;
   
