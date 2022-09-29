@@ -1,9 +1,13 @@
-//need to make event listerner for each img that distorts image when clicked
+// BIG NOTE TO START, java and javaScript are 2 wildly different things, the directory this is in should be renamed
+
+
+//need to make event listener for each img that distorts image when clicked
 //need to make a function that will randomly make a pattern to follow either bop[1], twist[2], pull[3]
 //need to make a function that will listen to players click to see if it creates the same pattern
 // if they follow pattern, increase pattern by 1
 //if they don't game'over
 
+// good organizational grouping 
 const bopIt = document.querySelector("#Bop-It")
 const twistIt = document.querySelector("#Twist-It")
 const pullIt = document.querySelector("#Pull-It")
@@ -14,12 +18,16 @@ const bopItGame = document.querySelector(".bop-it-game")
 
 
 let level = 0
+// looking at the code is there ever a time we expect the player and computer turn to contain more than 1 value ? 
+// if we don't using arrays would be counter intuitive 
 let playerTurn = []
 let computerTurn = []
 const choices = ["Bop-It","Twist-It","Pull-It"]
+// is this redundant with get random choice function ?
 let randomChoice = choices[Math.floor((Math.random())* (choices.length))]
 let interval = 2000
 
+// looks like you could refactor this with an Audio class
 const lostSound = document.createElement("audio")
 lostSound.id ="lost"
 lostSound.src = "java/GameSounds/Die_01.m4a"
@@ -65,6 +73,7 @@ pullClick.preload = "auto"
 
 
 document.addEventListener("DOMContentLoaded", ()=>{
+    // nit : be consistent, put this first log after the class add
     console.log("bop it was loaded")
     bopIt.classList.add("bounce-top")
     twistIt.classList.add('rotate-center')
@@ -82,6 +91,7 @@ const recordPlayerChoice= (e) =>{
 const getRandomChoice = () => {
  return choices[Math.floor((Math.random())* (choices.length))]
 }
+//be consistent - even with comments - no function labels 
 const clickSound = (e)=>{
     if(e.target.id === "Bop-It"){
         bopItClick.play()
@@ -94,10 +104,12 @@ const clickSound = (e)=>{
         twistClick.playbackRate = 3
     }
 }
+// no function label
 const playSound = ()=>{
     if (randomChoice === choices[0]){
         bopItSound.play()
         bopItSound.playbackRate = 1.5
+        // partial indentation
      }else if (randomChoice === choices[1]){
         twistItSound.play()
         twistItSound.playbackRate = 1.5
@@ -118,11 +130,14 @@ const stopGame = ()=>{
 //want to change the speed of the pattern as level increases
 function changeChoice() {
 console.log("this function ran")
+// partial indentation , 3 spaces ?
+// i would use a different name than interval id here - use something a little more semantic,
+// currently an unintentional(i assume) reference to underlying code functionality 
    intervalID = setInterval(compareChoices,interval) 
 
 }
 
-
+// no function label, also i count 7 lines with bad indentation
 function compareChoices () {
     console.log(`it's level ${level}\n`, 
     `player: ${playerTurn[0]} \n`,
@@ -174,6 +189,7 @@ const startGame = ()=> {
 // board has to be empty
     interval = 3000
     bopItGame.style.visibility='visible'
+    // is this clear of the array redundant if we are using changeChoice which does that as well ?
     playerTurn = []
     computerTurn = []
     level = 0
@@ -185,7 +201,7 @@ const startGame = ()=> {
         computerTurn.push(randomChoice)
         playSound()
     }, 1000)
-    
+    // INDENTATION! - 5spaces ?! 
      changeChoice()
     
 }
