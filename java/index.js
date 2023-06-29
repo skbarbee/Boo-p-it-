@@ -20,48 +20,23 @@ const choices = ["Bop-It","Twist-It","Pull-It"]
 let randomChoice = choices[Math.floor((Math.random())* (choices.length))]
 let interval = 2000
 
-const lostSound = document.createElement("audio")
-lostSound.id ="lost"
-lostSound.src = "java/GameSounds/Die_01.m4a"
-lostSound.type = "audio/mp4"
-lostSound.preload = "auto"
-
-const bopItSound = document.createElement("audio")
-bopItSound.id ="bopsound"
-bopItSound.src = "java/GameSounds/Bop.m4a"
-bopItSound.type = "audio/mp4"
-bopItSound.preload = "auto"
-
-const bopItClick = document.createElement("audio")
-bopItClick.id ="bopclick"
-bopItClick.src = "java/GameSounds/Bop_R.m4a"
-bopItClick.type = "audio/mp4"
-bopItClick.preload = "auto"
-
-const twistItSound = document.createElement("audio")
-twistItSound.id ="twistsound"
-twistItSound.src = "java/GameSounds/Twist.m4a"
-twistItSound.type = "audio/mp4"
-twistItSound.preload = "auto"
-
-const twistClick = document.createElement("audio")
-twistClick.id ="twistsound"
-twistClick.src = "java/GameSounds/Twist_C.m4a"
-twistClick.type = "audio/mp4"
-twistClick.preload = "auto"
-
-const pullItSound = document.createElement("audio")
-pullItSound.id = "pullItsound"
-pullItSound.src = "java/GameSounds/Pull.m4a"
-pullItSound.type = "audio/mp4"
-pullItSound.preload = "auto"
-
-const pullClick = document.createElement("audio")
-pullClick.id ="pullClicksound"
-pullClick.src = "java/GameSounds/Pull_R.m4a"
-pullClick.type = "audio/mp4"
-pullClick.preload = "auto"
-
+function createAudioElement(id, src) {
+    const audio = document.createElement("audio");
+    audio.id = id;
+    audio.src = src;
+    audio.type = "audio/mp4";
+    audio.preload = "auto";
+    return audio;
+  }
+  
+  const lostSound = createAudioElement("lost", "java/GameSounds/Die_01.m4a");
+  const bopItSound = createAudioElement("bopsound", "java/GameSounds/Bop.m4a");
+  const bopItClick = createAudioElement("bopclick", "java/GameSounds/Bop_R.m4a");
+  const twistItSound = createAudioElement("twistsound", "java/GameSounds/Twist.m4a");
+  const twistClick = createAudioElement("twistsound", "java/GameSounds/Twist_C.m4a");
+  const pullItSound = createAudioElement("pullItsound", "java/GameSounds/Pull.m4a");
+  const pullClick = createAudioElement("pullClicksound", "java/GameSounds/Pull_R.m4a");
+  
 
 
 document.addEventListener("DOMContentLoaded", ()=>{
